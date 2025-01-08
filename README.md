@@ -76,165 +76,6 @@ The project emphasizes:
 
 ---
 
-## 📈 Visualizations and Results  
-
-### 1. *Budget vs. Revenue*  
-*Interactive Scatterplot*:  
-- The scatterplot visualizes the positive correlation between budget and revenue.  
-- Each data point represents a movie, and the color intensity indicates budget.  
-- A regression trendline highlights the overall relationship.  
-
-*Insights*:  
-- Movies with a higher budget (>$50M) typically achieve higher revenue (> $500M).  
-- Some low-budget movies (e.g., independent films) generate disproportionately high revenue, indicating genre or uniqueness can sometimes compensate for a smaller budget.  
-
----
-
-### 2. *Runtime vs. Revenue*  
-*Interactive Visualization*:  
-- A scatterplot shows how runtime affects revenue.  
-- Movies are categorized into short (<90 minutes), medium (90–120 minutes), and long (>120 minutes).  
-- A regression line indicates trends for each category.  
-
-*Specific Results*:  
-- *Runtime below 90 minutes*: Limited success, primarily comedies or animated films.  
-- *Runtime 90–120 minutes*: Optimal range for blockbusters; the strongest correlation with revenue.  
-- *Runtime above 120 minutes*: Mixed performance; epic genres dominate, but excessive length can diminish audience interest.  
-
----
-
-### 3. *Hypothesis Testing*  
-*Null Hypothesis (H₀)*: Runtime and budget do not affect revenue.  
-*Alternate Hypothesis (H₁)*: Runtime and budget significantly affect revenue.  
-
-*Statistical Approach*:  
-- *Test Type*: ANOVA (Analysis of Variance).  
-- *Significance Level*: 0.05.  
-
-*Results*:  
-- *P-value for Budget*: 0.001 (<0.05) → Reject H₀.  
-- *P-value for Runtime*: 0.03 (<0.05) → Reject H₀.  
-
-*Detailed Outcome*:  
-- Budget significantly impacts revenue, contributing over 50% to variance in revenue.  
-- Runtime moderately affects revenue, particularly for blockbusters within the 90–120 minute range.  
-
-*Visualization*:  
-Combined scatterplot with regression lines showing budget, runtime, and revenue interaction.  
-
----
-
-### 4. *Multicomparison Models*  
-*Models Analyzed*:  
-- *Linear Regression*: Three variations of predictors.  
-- *Random Forest*: Comprehensive model with feature importance analysis.  
-
-| *Model*       | *Adjusted R²* | *MSE (Mean Squared Error)* | *Explanation*                                                |  
-|------------------|-----------------|-----------------------------|----------------------------------------------------------------|  
-| Linear Model 1   | 0.74            | Higher                      | Budget and runtime only.                                       |  
-| Linear Model 2   | 0.78            | Lower                       | Added cast and production details.                            |  
-| Random Forest    | *Best Fit*    | *Lowest*                  | Handles nonlinear interactions and missing data effectively.   |  
-
-*Feature Importance in Random Forest*:  
-| *Feature*          | *Importance Score* | *Impact on Revenue*                                                      |  
-|-----------------------|---------------------|----------------------------------------------------------------------------|  
-| Budget               | 0.87                | Strongest predictor of revenue; directly proportional.                     |  
-| Popularity           | 0.75                | Strongly linked to audience demand and marketing.                          |  
-| Runtime              | 0.65                | Optimal range (90–120 minutes) significantly enhances revenue potential.   |  
-
----
-
-## 🛠 Results and Outputs  
-
-This section details the outcomes of various models, hypothesis testing, and feature analysis used in the project. Each result is supported by metrics and visualizations for clarity and deeper insights.
-
-### 1. Model Performance  
-Several models were evaluated to predict movie revenue effectively. These included variations of linear regression models and a Random Forest model. The key metrics for evaluation were Adjusted R² and Mean Squared Error (MSE).  
-
-| *Model*       | *Adjusted R²* | *MSE (Mean Squared Error)* | *Explanation*                                                |  
-|------------------|-----------------|-----------------------------|----------------------------------------------------------------|  
-| Linear Model 1   | 0.74            | Higher                      | Used budget and runtime as predictors.                        |  
-| Linear Model 2   | 0.78            | Moderate                    | Added cast and production-related variables for better fit.    |  
-| Linear Model 3   | 0.81            | Moderate-Low                | Included all engineered features such as genres and keywords. |  
-| Random Forest    | *Best Fit*    | *Lowest*                  | Nonlinear model that handles interactions and missing data effectively. |  
-
-#### Key Takeaways:  
-- *Linear Regression*:  
-  - Model 3 showed the best performance among linear models with an Adjusted R² of 0.81.  
-  - Residual analysis confirmed that assumptions such as homoscedasticity and normality were met.  
-  - Linear models struggled with complex feature interactions, which reduced predictive accuracy.  
-- *Random Forest*:  
-  - Outperformed linear regression in both Adjusted R² and MSE.  
-  - Particularly useful in capturing nonlinear interactions between features like budget, runtime, and popularity.  
-  - Handles missing data seamlessly by generating estimates during training.  
-
----
-
-### 2. Hypothesis Testing  
-*Objective*: To determine if budget and runtime significantly affect movie revenue.  
-
-#### Statistical Approach:  
-- *Null Hypothesis (H₀)*: Budget and runtime do not affect revenue.  
-- *Alternate Hypothesis (H₁)*: Budget and runtime significantly affect revenue.  
-- *Test Used*: ANOVA (Analysis of Variance).  
-- *Significance Level*: 0.05.  
-
-#### Results:  
-| *Variable*      | *P-value*  | *Decision*               | *Explanation*                                                |  
-|--------------------|-------------|----------------------------|----------------------------------------------------------------|  
-| Budget            | 0.001       | Reject H₀                 | Budget strongly influences revenue, with a direct relationship.|  
-| Runtime           | 0.03        | Reject H₀                 | Runtime has a moderate impact, especially for blockbusters.    |  
-
-*Detailed Observations*:  
-1. *Budget*:  
-   - Movies with higher budgets consistently generated more revenue.  
-   - Budget alone accounted for more than 50% of the variance in revenue predictions.  
-
-2. *Runtime*:  
-   - Optimal runtime (90–120 minutes) significantly enhanced revenue potential.  
-   - Extremely short or long runtimes showed diminishing returns.  
-
-#### Visualization:  
-- *Scatterplots with Regression Lines*:  
-  - A combined plot visualized the interaction of budget and runtime with revenue.  
-  - Regression lines confirmed the positive correlation between these variables and revenue.  
-
----
-
-### 3. Feature Importance (Random Forest)  
-The Random Forest model provided insights into the most influential features for predicting revenue.  
-
-| *Feature*          | *Importance Score* | *Impact on Revenue*                                                      |  
-|-----------------------|---------------------|----------------------------------------------------------------------------|  
-| Budget               | 0.87                | The strongest predictor; higher budgets consistently lead to higher revenue.|  
-| Popularity           | 0.75                | Reflects audience demand, driven by marketing and star power.              |  
-| Runtime              | 0.65                | Moderate impact; movies in the 90–120 minute range perform best.           |  
-| Cast Size            | 0.60                | Larger casts, particularly with well-known actors, drive higher revenue.    |  
-| Production Company   | 0.58                | Big producers like Disney and Warner Bros. significantly enhance success.   |  
-
-#### Key Insights:  
-- *Budget*: Investment in production quality and marketing is critical for success.  
-- *Popularity*: Strong correlation with audience engagement, often tied to pre-release hype.  
-- *Runtime*: A sweet spot exists; excessively long or short runtimes can hinder box office performance.  
-
----
-
-### 4. Specific Outputs and Visualizations  
-
-#### Residual Analysis (Linear Regression):  
-- Residuals from the best linear regression model were plotted to evaluate fit.  
-- Key patterns observed:  
-  - Residuals were evenly distributed around zero, indicating no systematic bias.  
-  - The Normal Q-Q plot showed residuals following a nearly perfect one-to-one line, validating the assumption of normality.  
-
-#### Revenue Predictions:  
-- Predictions from the Random Forest model closely aligned with actual revenue values.  
-- *Output Summary*:  
-   ```plaintext
-   Min.   1st Qu.   Median   Mean   3rd Qu.   Max.  
-   0.699   6.417    7.176    6.949   7.751    9.041
-
----
 ## 🧪 Hypothesis Testing  
 
 *Objective*: To determine whether budget and runtime significantly affect movie revenue.  
@@ -269,10 +110,19 @@ To further support these results, scatterplots were created:
 - Combined scatterplots with regression lines illustrate the interaction between budget, runtime, and revenue.  
 
 #### Statistical Summary  
+-  *Null Hypothesis (H₀)*: Budget and runtime do not affect revenue.  
+- *Alternate Hypothesis (H₁)*: Budget and runtime significantly affect revenue.  
+- *Test Used*: ANOVA (Analysis of Variance).  
+- *Significance Level*: 0.05.  
 - The ANOVA test confirms the significance of budget and runtime, with both contributing to predicting movie revenue.  
-- A combined model incorporating both variables yields higher predictive accuracy than models using either variable alone.  
+- A combined model incorporating both variables yields higher predictive accuracy than models using either variable alone.
+---
+
 
 ---
+## 🛠 Results and Outputs  
+
+This section details the outcomes of various models, hypothesis testing, and feature analysis used in the project. Each result is supported by metrics and visualizations for clarity and deeper insights.
 
 ## 🔄 Multicomparison Models  
 
@@ -299,6 +149,31 @@ Three variations of linear regression and a Random Forest model were evaluated.
    - Outperformed all linear models, achieving the lowest MSE and highest predictive accuracy.  
    - Effectively captures complex feature interactions and nonlinear patterns.  
    - Handles missing data seamlessly during training.  
+---
+## 📈 Visualizations and Results  
+
+### 1. *Budget vs. Revenue*  
+*Interactive Scatterplot*:  
+- The scatterplot visualizes the positive correlation between budget and revenue.  
+- Each data point represents a movie, and the color intensity indicates budget.  
+- A regression trendline highlights the overall relationship.  
+
+*Insights*:  
+- Movies with a higher budget (>$50M) typically achieve higher revenue (> $500M).  
+- Some low-budget movies (e.g., independent films) generate disproportionately high revenue, indicating genre or uniqueness can sometimes compensate for a smaller budget.  
+
+---
+
+### 2. *Runtime vs. Revenue*  
+*Interactive Visualization*:  
+- A scatterplot shows how runtime affects revenue.  
+- Movies are categorized into short (<90 minutes), medium (90–120 minutes), and long (>120 minutes).  
+- A regression line indicates trends for each category.  
+
+*Specific Results*:  
+- *Runtime below 90 minutes*: Limited success, primarily comedies or animated films.  
+- *Runtime 90–120 minutes*: Optimal range for blockbusters; the strongest correlation with revenue.  
+- *Runtime above 120 minutes*: Mixed performance; epic genres dominate, but excessive length can diminish audience interest.  
 
 ---
 
@@ -340,3 +215,9 @@ The Random Forest model also provides a ranked list of feature importance scores
 - *Random Forest*: Superior predictive performance due to its ability to capture nonlinear relationships and handle missing data.  
 
 These results provide actionable insights for stakeholders in the film industry, helping optimize production budgets, movie runtimes, and marketing strategies.
+
+---
+
+
+
+

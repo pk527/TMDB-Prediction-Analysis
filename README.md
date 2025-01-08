@@ -3,7 +3,7 @@ Prediction Analysis in R
 # 🎥 Movie Revenue Prediction Using TMDb API Data  
 
 ## 📖 Overview  
-This project analyzes and predicts movie box office revenue using an enriched dataset sourced from *The Movie Database (TMDb) API*. By leveraging machine learning models and statistical analysis, we investigate the factors contributing to a movie’s success.  
+The project focuses on analyzing movie data to predict box office revenue using statistical models and machine learning techniques. The dataset is sourced from The Movie Database (TMDb) API and consists of information like movie budgets, runtime, popularity, and other attributes. Key processes include handling missing data, exploratory data analysis (EDA), hypothesis testing, and building predictive models like Linear Regression and Random Forest.
 
 The project emphasizes:  
 - Extracting actionable insights from data.  
@@ -214,9 +214,34 @@ The Random Forest model also provides a ranked list of feature importance scores
 - *Runtime*: Important for optimizing audience engagement and box office success.  
 - *Random Forest*: Superior predictive performance due to its ability to capture nonlinear relationships and handle missing data.  
 
-These results provide actionable insights for stakeholders in the film industry, helping optimize production budgets, movie runtimes, and marketing strategies.
+These results provide actionable insights for stakeholders in the film industry, helping optimize production budgets, movie runtimes, and marketing strategies. The project highlights a potential approach to predicting box office revenues by leveraging movie data and statistical models. While the formula isn’t foolproof, it establishes a strong correlation between attributes like budget, runtime, and revenue. Future improvements should focus on imputing missing values for categorical data and considering additional factors for better prediction accuracy.
 
 ---
+
+
+## Limitations
+1. **Limited Scope**: The analysis primarily involves EDA with minimal statistical modeling to validate findings.
+2. **Unexplored Factors**: Certain critical factors influencing revenue may have been overlooked.
+3. **Categorical Data**: Imputation of missing categorical values was not thoroughly optimized.
+4. **Overfitting Risk**: Random Forest models might struggle with data not seen during training.
+5. **Reduced Attributes**: Further segmentation and optimization of the dataset are required to enhance model accuracy.
+
+---
+
+## Future Applications
+1. **Enhanced Revenue Prediction Models**: Incorporate more advanced machine learning techniques like Gradient Boosting or Neural Networks to improve prediction accuracy.
+2. **Global Market Analysis**: Expand the analysis to include global trends and cultural preferences to better understand international box office performance.
+3. **Personalized Recommendations**: Use the insights to develop algorithms for recommending movie projects based on historical success factors.
+4. **Dynamic Budget Allocation**: Enable studios to optimize budget distribution across different aspects like production, marketing, and distribution.
+5. **Trend Forecasting**: Predict future trends in genres, runtimes, or release strategies based on historical data patterns.
+
+---
+
+
+
+
+
+
 
 
 
